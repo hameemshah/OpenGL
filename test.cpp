@@ -1,32 +1,28 @@
 #include <GL/glut.h>
 
-// Function to handle rendering
-void render() {
-    glClear(GL_COLOR_BUFFER_BIT);
-    // Put your rendering code here
-
-    glFlush();
+// Function to render the display
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);  // Clear the window
+    glColor3f(1.0, 0.0, 0.0);      // Set the drawing color to red
+    glBegin(GL_POLYGON);           // Draw a polygon (in this case, a square)
+        glVertex2f(-0.5, -0.5);
+        glVertex2f( 0.5, -0.5);
+        glVertex2f( 0.5,  0.5);
+        glVertex2f(-0.5,  0.5);
+    glEnd();
+    glFlush();                     // Finish and display the result
 }
 
-// Function to handle window resizing
-void reshape(int width, int height) {
-    glViewport(0, 0, width, height);
-    // Put your code for handling window resize here
-}
-
-int main(int argc, char** argv) {
+int main(int argc, char ** argv) {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(800, 600);
-    glutCreateWindow("GLUT Template");
+    glutInitDisplayMode(GLUT_RGB);
 
-    // Set the rendering function
-    glutDisplayFunc(render);
+    glutInitWindowPosition(200, 100);
+    glutInitWindowSize(500, 500);
 
-    // Set the reshape function
-    glutReshapeFunc(reshape);
+    glutCreateWindow("Window 1");
 
-    glutMainLoop();
-    return 0;
+    glutDisplayFunc(display);
+
+    glutMainLoop();  // Start the main loop
 }
-

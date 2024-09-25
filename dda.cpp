@@ -4,7 +4,7 @@
 
 float x, y, x1, y1, x2, y2, m, b;
 
-init (void) {
+void init (void) {
 	glClearColor(1.0, 1.0, 1.0, 1.0);	//White Background
 	glMatrixMode(GL_PROJECTION);
 	gluOrtho2D(0, 100, 0, 100);
